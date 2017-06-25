@@ -37,10 +37,11 @@ Serviços
  Configurações
  -------------
  
- - [Configurar a variável de ambiente JAVA_HOME]
- - [Configurar a variável de ambiente MAVEN_HOME]
- - [Configurar o Tomcat]
- - [Configurar o Maven]
+ - [Configurar a variável de ambiente JAVA_HOME](https://github.com/fabriciosaand/xy-inc/wiki/Configura%C3%A7%C3%B5es#configVarJavaHome)
+ - [Configurar a variável de ambiente MAVEN_HOME](https://github.com/fabriciosaand/xy-inc/wiki/Configura%C3%A7%C3%B5es#configVarMavenHome)
+ - [Configurar o Tomcat](https://github.com/fabriciosaand/xy-inc/wiki/Configura%C3%A7%C3%B5es#configTomcat)
+ - [Configurar o Maven](https://github.com/fabriciosaand/xy-inc/wiki/Configura%C3%A7%C3%B5es#configMaven)
+ - [Configurar o MySql](https://github.com/fabriciosaand/xy-inc/wiki/Configura%C3%A7%C3%B5es#configMySql)
     
  Instruções para execução
  ------------------------
