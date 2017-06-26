@@ -54,6 +54,15 @@ Serviços
  -------------------
  Acesse os links abaixo para testar a aplicação.
  
- - [Serviço para cadastrar pontos de interesse](http://localhost:8080/xy-inc/services/poi/cadastrar?nome=Lanchonete&coordenadaX=27&coordenadaY=12)`(http://localhost:8080/xy-inc/services/poi/cadastrar?nome=Lanchonete&coordenadaX=27&coordenadaY=12)`
- - [Serviço para listar todos os POIs cadastrados](http://localhost:8080/xy-inc/services/poi/listarTodos)`(http://localhost:8080/xy-inc/services/poi/listarTodos)`
- - [Serviço para listar POIs por proximidade](http://localhost:8080/xy-inc/services/poi/listarPorProximidade?coordenadaX=20&coordenadaY=10&dMax=10)`(http://localhost:8080/xy-inc/services/poi/listarPorProximidade?coordenadaX=20&coordenadaY=10&dMax=10)`
+ - [Serviço para cadastrar pontos de interesse](http://localhost:8080/xy-inc/services/poi/cadastrar?nome=Lanchonete&coordenadaX=27&coordenadaY=12)
+```
+(http://localhost:8080/xy-inc/services/poi/cadastrar?nome=Lanchonete&coordenadaX=27&coordenadaY=12)
+```
+ - [Serviço para listar todos os POIs cadastrados](http://localhost:8080/xy-inc/services/poi/listarTodos)
+ ```
+ (http://localhost:8080/xy-inc/services/poi/listarTodos)
+ ```
+ - [Serviço para listar POIs por proximidade](http://localhost:8080/xy-inc/services/poi/listarPorProximidade?coordenadaX=20&coordenadaY=10&dMax=10)
+ ```
+ (http://localhost:8080/xy-inc/services/poi/listarPorProximidade?coordenadaX=20&coordenadaY=10&dMax=10)
+ ```
