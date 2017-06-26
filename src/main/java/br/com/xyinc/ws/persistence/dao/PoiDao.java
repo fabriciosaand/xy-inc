@@ -20,15 +20,14 @@ public class PoiDao {
 		EntityManager entityManager = EntityManagerProvider.getEntityManagerFactory().createEntityManager();
 		entityManager.getTransaction().begin();
 
-		final PoiEntity merge = entityManager.merge(entity);
+		final PoiEntity poiEntity = entityManager.merge(entity);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return merge;
+		return poiEntity;
 	}
 
 	public List<PoiEntity> findAll() {
-
 		EntityManager entityManager = EntityManagerProvider.getEntityManagerFactory().createEntityManager();
 		return entityManager.createQuery(SELECT_TODOS, PoiEntity.class).getResultList();
 	}
