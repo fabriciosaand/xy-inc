@@ -8,46 +8,83 @@
 	<name>xy-inc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<properties>
+        <jersey.version>2.22.1</jersey.version>
+        <jaxrs.version>2.0.1</jaxrs.version>
+        <surefire.version>2.19</surefire.version>
+        <junit.version>4.12</junit.version>
+        <hibernate.version>5.1.0.Final</hibernate.version>
+        <mysql.version>5.1.37</mysql.version>
+    </properties>
+
 	<dependencies>
+        
+        <!-- JAX-RS 2.0) -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>${jaxrs.version}</version>
+        </dependency>
+        
+        <!-- Jersey 2.22 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+  			<groupId>org.glassfish.jersey.media</groupId>
+  			<artifactId>jersey-media-json-jackson</artifactId>
+  			 <version>${jersey.version}</version>
+  			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-core</artifactId>
-			<version>1.19</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.19</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-servlet</artifactId>
-			<version>1.19</version>
-		</dependency>
-
+        <dependency>
+            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+            <artifactId>jersey-test-framework-provider-jetty</artifactId>
+            <version>${jersey.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- JUnit 4.12 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Hibernate 5.1 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.1.0.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.1.0.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 
+		<!-- MySql 5.1 -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.37</version>
+			<version>${mysql.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -65,6 +102,17 @@
 					<path>/xy-inc</path>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>10</threadCount>
+                </configuration>
+            </plugin>
+			
 		</plugins>
 	</build>
 </project>

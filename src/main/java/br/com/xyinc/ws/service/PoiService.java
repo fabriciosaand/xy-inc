@@ -43,7 +43,7 @@ public class PoiService {
 		try {
 			PoiEntity poiEntity = new PoiEntity();
 			response = validar(nome, coordenadaX, coordenadaY);
-			if ((response.getStatus() == Status.OK.getStatusCode())) {
+			if ((response.getStatus() == Status.CREATED.getStatusCode())) {
 				poiEntity.setNome(nome);
 				poiEntity.setCoordenadaX(coordenadaX);
 				poiEntity.setCoordenadaY(coordenadaY);
@@ -78,35 +78,35 @@ public class PoiService {
 
 		if (coordenadaX == null || coordenadaY == null || nome == null) {
 			LOG.warning(PropertiesUtil.getProperty(POI_PARAMETROS_INVALIDOS));
-			return Response.status(400).entity(PropertiesUtil.getProperty(POI_PARAMETROS_INVALIDOS)).build();
+			return Response.status(Status.BAD_REQUEST).entity(PropertiesUtil.getProperty(POI_PARAMETROS_INVALIDOS)).build();
 		} else {
 
 			if (coordenadaX.intValue() < 0 || coordenadaY.intValue() < 0) {
 				LOG.warning(PropertiesUtil.getProperty(POI_COORDENADAS_NEGATIVAS));
-				return Response.status(200).entity(PropertiesUtil.getProperty(POI_COORDENADAS_NEGATIVAS)).build();
+				return Response.status(Status.OK).entity(PropertiesUtil.getProperty(POI_COORDENADAS_NEGATIVAS)).build();
 			}
 
 			if (nome.isEmpty()) {
 				LOG.warning(PropertiesUtil.getProperty(POI_NOME_VAZIO));
-				return Response.status(200).entity(PropertiesUtil.getProperty(POI_NOME_VAZIO)).build();
+				return Response.status(Status.OK).entity(PropertiesUtil.getProperty(POI_NOME_VAZIO)).build();
 			} else if (nome.length() < 3 || nome.length() > 50) {
 				LOG.warning(PropertiesUtil.getProperty(POI_NOME_TAMANHO));
-				return Response.status(200).entity(PropertiesUtil.getProperty(POI_NOME_TAMANHO)).build();
+				return Response.status(Status.OK).entity(PropertiesUtil.getProperty(POI_NOME_TAMANHO)).build();
 			}
 
 			if (coordenadaY.intValue() > 90) {
 				LOG.warning(PropertiesUtil.getProperty(POI_COORDENADAY_MAXIMO));
-				return Response.status(200).entity(PropertiesUtil.getProperty(POI_COORDENADAY_MAXIMO)).build();
+				return Response.status(Status.OK).entity(PropertiesUtil.getProperty(POI_COORDENADAY_MAXIMO)).build();
 			}
 
 			if (coordenadaX.intValue() > 180) {
 				LOG.warning(PropertiesUtil.getProperty(POI_COORDENADAX_MAXIMO));
-				return Response.status(200).entity(PropertiesUtil.getProperty(POI_COORDENADAX_MAXIMO)).build();
+				return Response.status(Status.OK).entity(PropertiesUtil.getProperty(POI_COORDENADAX_MAXIMO)).build();
 			}
 
 			LOG.info(PropertiesUtil.getProperty(POI_SUCESSO, nome, coordenadaX, coordenadaY));
-			return Response.status(200).entity(PropertiesUtil.getProperty(POI_SUCESSO, nome, coordenadaX, coordenadaY))
-					.build();
+			return Response.status(Status.CREATED).entity(PropertiesUtil
+					.getProperty(POI_SUCESSO, nome, coordenadaX, coordenadaY)).build();
 		}
 	}
 
